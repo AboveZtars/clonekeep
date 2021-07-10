@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 
-function CreateArea(){
+function CreateArea(props){
     const [textInput, setTextInput] = useState({
+        key: "",
         input: "",
         textTxArea: "",
     });
 
-    function handleChange(event){
+    function handleChange(event){  
         const {name, value} = event.target;
         setTextInput(prevValues =>{
             return {
@@ -15,8 +16,9 @@ function CreateArea(){
             }
         });
     }
-    function handleClick(){
-        
+    function handleClick(event){
+        props.onAdd(textInput);
+        event.preventDefault();
     }
     return (
         <div>
