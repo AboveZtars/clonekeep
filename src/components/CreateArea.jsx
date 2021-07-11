@@ -15,10 +15,15 @@ function CreateArea(props){
                 [name]: value,
             }
         });
+
     }
     function handleClick(event){
         props.onAdd(textInput);
         event.preventDefault();
+        setTextInput({
+        input: "",
+        textTxArea: "",
+        })
     }
     return (
         <div>
